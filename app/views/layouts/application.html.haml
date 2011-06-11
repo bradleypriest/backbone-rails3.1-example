@@ -5,7 +5,8 @@
   = stylesheet_link_tag "application"
   = csrf_meta_tags
 %body
-  = yield
+  %container
+    = yield
 
   %footer
     = javascript_include_tag "application"

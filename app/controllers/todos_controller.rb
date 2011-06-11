@@ -1,33 +1,25 @@
 class TodosController < ApplicationController
   respond_to :json
-  
+
   def index
-    @todos = Todo.all
-    respond_with @todos
+    render json: Todo.all
   end
 
   def show
-    @todo = Todo.find(params[:id])
-    respond_with @todo
+    render json: Todo.find(params[:id])
   end
 
   def create
-    @todo = Todo.new(filtered_params)
-    if @todo.save
-      respond_with @todo
-    else
-      respond_with @todo.errors
-    end
+    todo = Todo.create!(filtered_params)
+    render json: todo
   end
 
   def update
-    @todo = Todo.find(params[:id])
-
-    if @todo.update_attributes(filtered_params)
-      respond_with @todo
+    todo = Todo.find params[:id]
+    if todo.update_attributes filtered_params
+      render json: todo
     else
-      respond_with @todo.errors
-
+      render json: todo.errors, status: :unprocessable_entity
     end
   end
 

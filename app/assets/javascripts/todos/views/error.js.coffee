@@ -3,10 +3,9 @@ App.Views.Error = Backbone.View.extend({
     @render()
 
   render: ->
-    console.log @options
-    out = "<span class='error'>"+@options+"</span>"
-
+    out = "<span class='error'>"
+    out += @options.message
+    out += "</span>"
     $(@el).html(out)
     $('#notice').html(@el)
-    return false
 })

@@ -22,10 +22,9 @@ App.Views.Edit = Backbone.View.extend({
           self.render()
           self.delegateEvents()
           Backbone.history.saveLocation('todos/' + model.id)
-      },
-      {
-        error: ->
-          new App.Views.Error()
+
+        error: (model, response )->
+          new App.Views.Error( message: App.Helpers.transformError( response ) )
       }
     )
     false
@@ -44,4 +43,5 @@ App.Views.Edit = Backbone.View.extend({
     $(@el).html(out)
     $('#app').html(@el)
     this.$('[name=name]').val(@model.get('name'))
+    $('#notice').empty()
 })

@@ -15,5 +15,5 @@ App.Views.Index = Backbone.View.extend({
 
     $(@el).html(out)
     $('#app').html(@el)
-
+    $('#notice').empty()
 })
