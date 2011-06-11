@@ -1,0 +1,10 @@
+%h1
+  =link_to "Todos", "#"
+%h2 Testing Backbone
+
+#notice
+#app
+
+= content_for :end_scripts do
+  = coffee_script_tag do
+    $ -> App.init()
