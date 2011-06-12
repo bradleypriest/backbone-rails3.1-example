@@ -14,8 +14,9 @@ App.Controllers.Todos = Backbone.Controller.extend({
         new Error({ message: 'Could not find that task.' })
         window.location.hash = '#'
     })
-  index: (q) ->
-    todos = new App.Collections.Todos()
+  index: (query) ->
+    q = if query then query else ""
+    todos = new App.Collections.Todos({ q: q })
     todos.fetch({
       success: ->
         new App.Views.Index({ collection: todos })

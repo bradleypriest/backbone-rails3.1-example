@@ -1,7 +1,7 @@
 App.Views.Index = Backbone.View.extend({
 
   events: {
-    #"submit form": "rerender"
+    "submit form": "rerender"
   }
 
   initialize: ->
@@ -19,5 +19,4 @@ App.Views.Index = Backbone.View.extend({
     q = $('input[type="search"]').val()
     controller.index(q)
     false
-
 })

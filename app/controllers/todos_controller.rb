@@ -3,7 +3,7 @@ class TodosController < ApplicationController
 
   def index
     todos = Todo.scoped
-    todos = todos.where('name LIKE ?', '%'+params[:q]+'%') if params[:q]
+    todos = todos.where('name LIKE ? OR description LIKE?', '%'+params[:q]+'%', '%'+params[:q]+'%') if params[:q]
     render json: todos
   end
 
