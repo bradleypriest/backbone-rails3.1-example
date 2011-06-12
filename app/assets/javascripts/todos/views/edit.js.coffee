@@ -4,6 +4,8 @@ App.Views.Edit = Backbone.View.extend({
   }
 
   initialize: ->
+    _.bindAll(this, 'render')
+    @model.bind('change', @render)
     @render()
 
   save: ->
@@ -32,5 +34,6 @@ App.Views.Edit = Backbone.View.extend({
   render: ->
     $(@el).html( JST.show({ model: this.model }) )
     $('#app').html(@el)
+    this.$('[name=name]').val(@model.get('name'))
     $('#notice').empty()
 })
