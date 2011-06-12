@@ -4,7 +4,7 @@ App.Views.Notice = Backbone.View.extend({
     @render()
 
   render: ->
-    out = "<span class='notice'>"+@message+"</span>"
+    out = "<span class='success'>"+@message+"</span>"
 
     $(@el).html(out)
     $('#notice').html(@el)

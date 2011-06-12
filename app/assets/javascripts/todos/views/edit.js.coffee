@@ -17,9 +17,9 @@ App.Views.Edit = Backbone.View.extend({
       },
       {
         success: (model, resp) ->
-          new App.Views.Notice({ message: msg })
           self.model = model
           self.render()
+          new App.Views.Notice({ message: msg })
           self.delegateEvents()
           Backbone.history.saveLocation('todos/' + model.id)
 
@@ -30,18 +30,7 @@ App.Views.Edit = Backbone.View.extend({
     false
 
   render: ->
-    out = '<form>'
-    out += "<label for='name'>Title</label>"
-    out += "<input name='name' type='text' />"
-
-    out += "<label for='description'>Body</label>";
-    out += "<textarea name='description'>" + (@model.escape('description') || '') + "</textarea>"
-    submitText = if @model.isNew() then 'Create' else 'Save'
-    out += "<button>" + submitText + "</button>"
-    out += "</form>"
-
-    $(@el).html(out)
+    $(@el).html( JST.show({ model: this.model }) )
     $('#app').html(@el)
-    this.$('[name=name]').val(@model.get('name'))
     $('#notice').empty()
 })

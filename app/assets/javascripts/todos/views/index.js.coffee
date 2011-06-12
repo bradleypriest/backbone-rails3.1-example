@@ -1,19 +1,23 @@
 App.Views.Index = Backbone.View.extend({
+
+  events: {
+    #"submit form": "rerender"
+  }
+
   initialize: ->
-    @todos = @options.todos
     @render()
 
   render: ->
-    if @todos.length > 0
-      out = "<h3><a href='#new'>Create New</a></h3><ul>"
-      _(@todos).each( (item) ->
-        out += "<li><a href='#todos/" + item.id + "'>" + item.escape('name') + "</a></li>" if item.escape('name')
-      )
-      out += "</ul>"
-    else
-      out = "<h3>No tasks! <a href='#new'>Create one</a></h3>"
-
-    $(@el).html(out)
+    # q = @options.q || ""
+    $(@el).html(JST.index({ collection: @collection}))
     $('#app').html(@el)
     $('#notice').empty()
+    $('input[type="search"]').focus()
+
+  rerender: ->
+    controller = new App.Controllers.Todos
+    q = $('input[type="search"]').val()
+    controller.index(q)
+    false
+
 })

@@ -1,8 +1,8 @@
 App.Controllers.Todos = Backbone.Controller.extend({
   routes: {
-    "todos/:id":                "edit",
-    "":                         "index",
-    "new":                      "newTodo"
+    "todos/:id" :  "edit",
+    ""          :  "index",
+    "new"       :  "newTodo"
   }
 
   edit: (id) ->
@@ -14,14 +14,16 @@ App.Controllers.Todos = Backbone.Controller.extend({
         new Error({ message: 'Could not find that task.' })
         window.location.hash = '#'
     })
-  index: ->
-    $.getJSON('/todos', (data) ->
-      if data
-        todos = _(data).map( (i) -> new Todo(i))
-        new App.Views.Index({ todos: todos })
-      else
+  index: (q) ->
+    todos = new App.Collections.Todos()
+    todos.fetch({
+      success: ->
+        new App.Views.Index({ collection: todos })
+      error: ->
         new Error({ message: "Error loading tasks." })
-    )
+    })
+
   newTodo: ->
     new App.Views.Edit({ model: new Todo() })
+
 })

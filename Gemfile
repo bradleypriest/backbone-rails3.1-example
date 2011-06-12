@@ -12,7 +12,7 @@ gem 'haml-rails'
 gem 'sass-rails', "~> 3.1.0.rc"
 gem 'coffee-script'
 gem 'coffeebeans'
-
+gem 'jammit'
 gem 'uglifier'
 gem 'jquery-rails'
 

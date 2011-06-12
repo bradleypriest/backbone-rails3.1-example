@@ -1,0 +1,4 @@
+package_path: jammit
+javascripts:
+  workspace:
+    - app/views/todos/*.jst

@@ -2,7 +2,9 @@ class TodosController < ApplicationController
   respond_to :json
 
   def index
-    render json: Todo.all
+    todos = Todo.scoped
+    todos = todos.where('name LIKE ?', '%'+params[:q]+'%') if params[:q]
+    render json: todos
   end
 
   def show
@@ -10,8 +12,12 @@ class TodosController < ApplicationController
   end
 
   def create
-    todo = Todo.create!(filtered_params)
-    render json: todo
+    todo = Todo.new(filtered_params)
+    if todo.save
+      render json: todo
+    else
+      render json: todo.errors, status: :unprocessable_entity
+    end
   end
 
   def update
