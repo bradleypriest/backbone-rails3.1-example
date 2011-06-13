@@ -26,13 +26,13 @@ App.Views.Edit = Backbone.View.extend({
           Backbone.history.saveLocation('todos/' + model.id)
 
         error: (model, response )->
-          new App.Views.Error( message: App.Helpers.transformError( response ) )
+          new App.Views.Notice( type: 'error', message: App.Helpers.transformError( response ) )
       }
     )
     false
 
   render: ->
-    $(@el).html( JST.show({ model: this.model }) )
+    $(@el).html( JST.todosShow({ model: @model }) )
     $('#app').html(@el)
     this.$('[name=name]').val(@model.get('name'))
     $('#notice').empty()

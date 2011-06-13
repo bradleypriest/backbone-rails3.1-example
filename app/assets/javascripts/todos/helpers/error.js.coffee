@@ -7,5 +7,4 @@ App.Helpers = {
       out += key+" "+value+"<br/>"
     )
     out
-
 }

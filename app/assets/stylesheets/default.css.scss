@@ -42,7 +42,7 @@ h3 {
   margin: 15px 0 15px 0;
 }
 
-#notice .success, #notice .error {
+#notice .notice, #notice .error {
   height: 25px;
   color: green;
   width: 100%;
@@ -54,18 +54,6 @@ h3 {
 #notice .error {
   color: red;
 }
-ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  li {
-    a {
-      display: block;
-      padding: 10px;
-      border-bottom: 1px solid #eee;
-      &:hover{
-        background: #eee;
-      }
-    }
-  }
+input[type='search'] {
+  margin-bottom: 10px;
 }

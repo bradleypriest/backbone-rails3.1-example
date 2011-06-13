@@ -11,7 +11,7 @@ App.Controllers.Todos = Backbone.Controller.extend({
       success: (model, resp) ->
         new App.Views.Edit({ model: doc })
       error: ->
-        new Error({ message: 'Could not find that task.' })
+        new App.Views.Notice({ message: 'Could not find that task.' })
         window.location.hash = '#'
     })
   index: (query) ->
@@ -21,10 +21,11 @@ App.Controllers.Todos = Backbone.Controller.extend({
       success: ->
         new App.Views.Index({ collection: todos })
       error: ->
-        new Error({ message: "Error loading tasks." })
+        new App.Views.Notice({ type: 'error', message: "Error loading tasks." })
     })
 
   newTodo: ->
     new App.Views.Edit({ model: new Todo() })
+
 
 })

@@ -1,10 +1,7 @@
-<form><input type='search' value=''/></form>
 <% if(collection.models.length > 0) { %>
-    <h3><a href='#new'>Create New</a></h3><ul>
+    <ul>
     <% collection.each(function(item) { %>
       <li><a href='#todos/<%= item.id %>'><%= item.escape('name') %></a></li>
     <% }); %>
     </ul>
-<% } else { %>
-    <h3>No Task! <a href='#new'>Create one</a></h3>
 <% } %>

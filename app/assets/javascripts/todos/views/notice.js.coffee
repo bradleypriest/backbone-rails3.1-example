@@ -1,11 +1,16 @@
 App.Views.Notice = Backbone.View.extend({
+
   initialize: ->
-    @message = @options.message
+    console.log @options
     @render()
 
   render: ->
-    out = "<span class='success'>"+@message+"</span>"
-
+    out = "<span class='"
+    out += @options.type || "notice"
+    out += "'>"
+    out += @options.message
+    out += "</span>"
     $(@el).html(out)
     $('#notice').html(@el)
+
 })
