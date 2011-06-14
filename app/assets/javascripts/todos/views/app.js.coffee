@@ -9,7 +9,8 @@ App.Views.AppView = Backbone.View.extend({
 
   search: ->
     q = $('input[type="search"]').val()
-    this.$('#app').children().first().addClass('loading').empty()
-    @controller.index(q)
+    if q
+      this.$('#app').children().first().addClass('loading').empty()
+      @controller.index(q)
     false
 })
