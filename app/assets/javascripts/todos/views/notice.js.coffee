@@ -8,13 +8,7 @@ App.Views.Notice = Backbone.View.extend({
     @render()
 
   render: ->
-    out = "<span class='"
-    out += @options.type || "notice"
-    out += "'>"
-    out += @options.message
-    out += "</span>"
-    out += "<a href='#' class='close'>x</a>"
-    $(@el).html(out)
+    $(@el).html( JST.notice({ notice: @options }) )
     $('#notice').html(@el)
     @remove()
 
