@@ -1,1 +1,1 @@
-<a href='#todos/<%= model.id %>'><%= model.escape('name') %></a><a class='remove'>x</a>
+<a class='name' href='#todos/<%= model.id %>' title="<%= model.escape('description').substring(0,50) %>"><%= model.escape('name') %></a><a class='remove' title='Remove'>x</a>
