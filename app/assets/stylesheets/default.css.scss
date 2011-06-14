@@ -1,6 +1,6 @@
 html {
   text-align: center;
-  padding: 30px;
+  padding: 40px;
 }
 
 body {
@@ -39,16 +39,20 @@ h3 {
 
 #notice {
   font-size: 15px;
-  margin: 15px 0 15px 0;
 }
 
 #notice .notice, #notice .error {
   height: 25px;
-  color: green;
+  color: white;
+  line-height: 35px;
+}
+#notice {
+  top: 0;
+  position: absolute;
+  left: 0;
+  text-align: center;
   width: 100%;
-  border: 1px solid #ddd;
-  background: #eee;
-  padding: 5px;
+  background: rgba(0, 0, 0, 0.5);
 }
 
 #notice .error {
@@ -59,4 +63,13 @@ form.search {
 }
 input[type='search'] {
   margin-bottom: 10px;
+}
+a.close {
+  color:#F00;
+  text-decoration:none;
+  padding:10px;
+  margin-left:10px;
+  &:hover {
+    color:#222;
+  }
 }

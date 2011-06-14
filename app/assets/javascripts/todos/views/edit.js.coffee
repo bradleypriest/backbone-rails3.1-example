@@ -34,6 +34,6 @@ App.Views.Edit = Backbone.View.extend({
   render: ->
     $(@el).html( JST.todosShow({ model: @model }) )
     $('#app').html(@el)
-    this.$('[name=name]').val(@model.get('name'))
+    this.$('[name=name]').val(@model.get('name')).focus()
     $('#notice').empty()
 })
