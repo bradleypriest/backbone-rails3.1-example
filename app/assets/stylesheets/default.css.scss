@@ -30,7 +30,7 @@ h2 {
 
 h3 {
   font-size: 15px;
-  margin-bottom: 15px;
+  margin: 10px 2px 15px;
 }
 
 #app {
@@ -53,6 +53,9 @@ h3 {
 
 #notice .error {
   color: red;
+}
+form.search {
+  float:right;
 }
 input[type='search'] {
   margin-bottom: 10px;

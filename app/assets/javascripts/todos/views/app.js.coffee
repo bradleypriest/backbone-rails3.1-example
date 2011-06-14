@@ -2,12 +2,14 @@ App.Views.AppView = Backbone.View.extend({
   el: 'container'
 
   events: {
-    "submit form": "search"
+    "keyup .search input": "search"
   }
+  initialize: ->
+    @controller = new App.Controllers.Todos
 
   search: ->
-    controller = new App.Controllers.Todos
     q = $('input[type="search"]').val()
-    controller.index(q)
+    this.$('#app').children().first().addClass('loading').empty()
+    @controller.index(q)
     false
 })
