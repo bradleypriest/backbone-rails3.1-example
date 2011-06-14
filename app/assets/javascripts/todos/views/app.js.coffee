@@ -4,8 +4,8 @@ App.Views.AppView = Backbone.View.extend({
   events: {
     "keyup .search input": "search"
   }
-  initialize: ->
-    @controller = new App.Controllers.Todos
+  initialize: (controller) ->
+    @controller = controller
 
   search: ->
     q = $('input[type="search"]').val()

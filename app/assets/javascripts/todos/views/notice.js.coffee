@@ -5,7 +5,6 @@ App.Views.Notice = Backbone.View.extend({
   }
 
   initialize: ->
-    console.log @options
     @render()
 
   render: ->
