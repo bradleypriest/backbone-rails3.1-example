@@ -1,14 +1,14 @@
 !!!
 %html
-%head
-  %title Backbone
-  = stylesheet_link_tag "application"
-  = csrf_meta_tags
-%body
-  %container
-    = yield
+  %head
+    %title Backbone
+    = stylesheet_link_tag "application"
+    = csrf_meta_tags
+  %body
+    %container
+      = yield
 
-  %footer
-    = javascript_include_tag "application"
-    = include_javascripts :workspace
-    = yield(:end_scripts)
+    %footer
+      = javascript_include_tag "application"
+      = include_javascripts :workspace
+      = yield(:end_scripts)
