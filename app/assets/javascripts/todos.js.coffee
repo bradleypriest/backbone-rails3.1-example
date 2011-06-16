@@ -3,7 +3,6 @@ window.App = {
   Controllers: {}
   Collections: {}
   init: ->
-    controller = new App.Controllers.Todos()
-    new App.Views.AppView(controller)
+    new App.Controllers.Todos()
     Backbone.history.start()
 }

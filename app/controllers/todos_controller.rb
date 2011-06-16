@@ -39,6 +39,7 @@ class TodosController < ApplicationController
     def filtered_params
       params.select{ |k,v| k.to_sym.in?(Todo.allowed_attributes)}
     end
+
     def rescue_error
       begin
         yield

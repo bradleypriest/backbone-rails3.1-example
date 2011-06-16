@@ -5,6 +5,9 @@ App.Controllers.Todos = Backbone.Controller.extend({
     "new"       :  "newTodo"
   }
 
+  initialize: ->
+    new App.Views.AppView(this)
+
   edit: (id) ->
     doc = new Todo({ id: id })
     doc.fetch({
@@ -26,6 +29,5 @@ App.Controllers.Todos = Backbone.Controller.extend({
 
   newTodo: ->
     new App.Views.Edit({ model: new Todo() })
-
 
 })
